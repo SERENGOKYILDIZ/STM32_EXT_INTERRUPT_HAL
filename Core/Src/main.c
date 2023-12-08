@@ -55,9 +55,9 @@ static void MX_GPIO_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	i++;
 	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)) //-> If The pin is A0, Run this code.
 	{
+		i++;
 		switch(i)
 		{
 			case 1:
@@ -82,7 +82,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	{
 		count = 2000;
 	}
-	else //-> If The pin is A2, Run this code.
+	else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2)) //-> If The pin is A2, Run this code.
 	{
 		count = 3000;
 	}
